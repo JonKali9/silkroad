@@ -18,10 +18,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/users', usersRouter);
-app.use('/products', productsRouter);
-app.use('/orders', ordersRouter);
-app.use('/carts', cartsRouter);
+app.use('/api/users', usersRouter);
+app.use('/api/products', productsRouter);
+app.use('/api/orders', ordersRouter);
+app.use('/api/carts', cartsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
