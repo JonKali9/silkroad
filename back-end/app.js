@@ -8,6 +8,8 @@ var usersRouter = require('./routes/users');
 var productsRouter = require('./routes/products');
 var ordersRouter = require('./routes/orders');
 var cartsRouter = require('./routes/carts');
+var loginRouter = require('./routes/login');
+var checkoutRouter = require('./routes/checkout');
 
 var app = express();
 var PORT = 3001;
@@ -22,6 +24,8 @@ app.use('/api/users', usersRouter);
 app.use('/api/products', productsRouter);
 app.use('/api/orders', ordersRouter);
 app.use('/api/carts', cartsRouter);
+app.use('/api/login', loginRouter);
+app.use('/api/checkout', checkoutRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
