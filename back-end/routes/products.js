@@ -3,12 +3,13 @@ const router = express.Router();
 const db = require('../database');
 
 router.get('/', function(req, res, next) {
-  const {q, c} = req.query;
+  const {q, c, u} = req.query;
   let query = 'SELECT * FROM Products';
   if (q) query += ` WHERE Title LIKE '%${q}%'`;
   if (q && c) query += ` AND`;
   if (c && q) query += ` Category = '${c}'`;
   if (c && !q) query += ` WHERE Category = '${c}'`;
+  if (u) query += ` WHERE Seller_Id = ${u};`
   db.query(query, (err, data) => {
     if (err) console.log(err);
     res.status(200).json(data);
