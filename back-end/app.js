@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 var usersRouter = require('./routes/users');
 var productsRouter = require('./routes/products');
+var imagesRouter = require('./routes/images');
 var ordersRouter = require('./routes/orders');
 var cartsRouter = require('./routes/carts');
 var loginRouter = require('./routes/login');
@@ -16,12 +17,13 @@ var PORT = 3001;
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/users', usersRouter);
 app.use('/api/products', productsRouter);
+app.use('/api/images', imagesRouter);
 app.use('/api/orders', ordersRouter);
 app.use('/api/carts', cartsRouter);
 app.use('/api/login', loginRouter);
